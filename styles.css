@@ -1,0 +1,144 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    --primary-color:#ee5159;
+}
+body{
+    height: 100vh;
+    background: linear-gradient(to right, #ee5159, #3d8880);
+}
+.card{
+    margin: 120px auto;
+    width: 320px;
+    height: 400px;
+    background: #000;
+    padding: 20px;
+    border-radius: 15px;
+    color: white;
+    position: relative;
+}
+
+.card-heart, .card-cart{
+    font-size: 25px;
+    position: absolute;
+    left: 20px;
+    top: 15px;
+    cursor: pointer;
+    
+}
+.card-cart{
+    left: unset; /*vì là trên đã được left nên nếu right thì không hiệu lực nên dùng unset*/
+    right: 20px;
+}
+.card-img{
+   
+    transition: transform 0.5s ease-in-out;
+}
+.card-img > img{
+    margin: 0;
+    width: 90%;
+    height: 90%;
+    object-fit: cover; /*để co lại thành fullHD quan trọng*/
+}
+.card-info{
+    position: absolute;
+    width: 300px;
+    left: 20px;
+    top: calc(15px + 200px);
+    transition: transform 0.5s ease-in-out;
+}
+.card-title, .card-price{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    text-align: center;
+}
+
+.card-title{
+    color:var(--primary-color);
+}
+.card-size, .card-color{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.card-size >span{
+    padding: 1px 10px;
+    background: #dadada;
+    color: black;
+    border-radius: 5px;
+    margin: 0 2px;
+    cursor: pointer;
+}
+
+.card-color > span{
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+}
+.card-color-green{
+    background: green;
+    
+}
+.card-color-red{
+    background: red;
+}
+.card-color-black{
+    background: white;
+}
+
+.card-action > button{
+    background: var(--primary-color);
+    border: none;
+    outline: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+.card-size, .card-color, .card-action{
+    visibility: hidden;
+    opacity: 0;
+    margin-top: 200px;
+    transition: margin-top 0.5s ease-in-out;
+    transition-delay: 0.2s;
+    
+}
+.card-action>button{
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+}
+@media (hover:hover) {
+    .card:hover .card-img{
+        transform: translateY(-90px) rotate(-20deg);
+    }
+    .card:hover .card-info{
+        margin-top: 0px;
+        visibility: visible;
+        opacity: 100;
+        transform: translate(5px, -61px);
+    }
+    .card:hover .card-size {
+        margin-top: 0px;
+        visibility: visible;
+        opacity: 100;
+    }
+    .card:hover .card-color {
+        margin-top: 0px;
+        visibility: visible;
+        opacity: 100;
+    }
+    .card:hover .card-action {
+        margin-top: 0px;
+        visibility: visible;
+        opacity: 100;
+    }
+    .card-action >button:hover{
+        transform: scale(0.9);
+    }
+}
